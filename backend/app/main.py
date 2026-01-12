@@ -6,8 +6,8 @@ import os
 
 import torch
 
-from app.config import settings
-from app.api import routes
+from backend.app.config import settings
+from backend.app.api import routes
 from backend.app.services.inteference import InferenceService
 from backend.app.services.preprocessing import PreprocessingService
 from backend.app.services.search import SearchService

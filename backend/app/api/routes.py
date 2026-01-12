@@ -3,14 +3,14 @@ from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
 from typing import Optional
 import time
 import logging
-from app.config import settings
-from audios.utils import validate_audio_file
+from backend.app.config import settings
 from backend.app.models.health_model import HealthResponse
 from backend.app.models.search_model import SearchResponse, SearchResult
 from backend.app.services.inteference import InferenceService
 from backend.app.services.preprocessing import PreprocessingError, PreprocessingService
 from backend.app.services.search import SearchService
 from backend.app.utils.file_manager import cleanup_file, save_upload_file
+from audios.utils import validate_audio_file
 
 logger = logging.getLogger(__name__)
 

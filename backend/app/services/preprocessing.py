@@ -4,7 +4,7 @@ import librosa
 import numpy as np
 import logging
 
-from app.config import settings
+from backend.app.config import settings
 from audios import stft, tools
 from audios.utils import convert_to_wav, is_audio_too_short
 from backend.app.utils.file_manager import cleanup_file, create_temp_path

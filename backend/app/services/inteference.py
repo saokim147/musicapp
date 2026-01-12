@@ -2,7 +2,7 @@ from sklearn.preprocessing import normalize
 from model.util import load_model
 import torch
 import numpy as np
-from app.config import settings
+from backend.app.config import settings
 class InferenceService:
     def __init__(self,device:str) -> None:
         self.backbone=settings.BACKBONE
