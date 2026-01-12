@@ -13,3 +13,4 @@ __pycache__/
 .env.*
 uv.lock
 CLAUDE.md
+checkpoints/

@@ -80,7 +80,6 @@ gcloud storage rsync gs://prod-backup gs://test-backup \
 --encryption-key=base64AES256key...
 --decryption-keys=key1,key2,key3
 ```
-
 ## Exclude / Include Patterns – Quick Reference
 
 ```bash
@@ -96,9 +95,7 @@ gcloud storage rsync gs://prod-backup gs://test-backup \
 # Windows cmd.exe escaping note
 --exclude=".*\.jpg$|.*\.tmp$"
 ```
-
 ## Safety Recommendations
-
 1. Always test first with `--dry-run`
 2. Use `--no-clobber` when you're not 100% sure
 3. Consider `--checksums-only` for critical data
