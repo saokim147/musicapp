@@ -215,13 +215,13 @@ class WrapModule(nn.Module):
     def forward(self, x):
         return self.module(x)
     
-@ModelRegistry.register("resnet_face18")
+@ModelRegistry.register("resnet18")
 def resnet_face18(use_se=True, **kwargs):
     model = ResNetFace(IRBlock, [2, 3, 4, 3], use_se=use_se, **kwargs)
     return model
 
 
-@ModelRegistry.register("resnet_face34")
+@ModelRegistry.register("resnet34")
 def resnet_face34(use_se=True, **kwargs):
     model = ResNetFace(IRBlock, [3, 4, 6, 3], use_se=use_se, **kwargs)
     return model
