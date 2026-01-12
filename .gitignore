@@ -1,0 +1,15 @@
+.venv/
+.vscode/
+mobile/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.log
+*.db
+*.sqlite
+.env
+.env.*
+uv.lock
+CLAUDE.md
