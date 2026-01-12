@@ -14,3 +14,4 @@ __pycache__/
 uv.lock
 CLAUDE.md
 checkpoints/
+scripts/key.pem
