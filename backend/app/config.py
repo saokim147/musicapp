@@ -11,11 +11,20 @@ class Settings(BaseSettings):
 
     # Paths - all relative to PROJECT_ROOT unless absolute
     PROJECT_ROOT: str = _PROJECT_ROOT
-    CHECKPOINT_PATH: str = "{PROJECT_ROOT}/checkpoints/resnet18_best.pth"   
-    SONGS_DIR: str = "{PROJECT_ROOT}/preprocessed/train/song" 
-    GROUP_TITLE_CSV_PATH: str = "{PROJECT_ROOT}/preprocessed/group_to_title.csv"  
     UPLOAD_DIR: str = "./uploads"
     CACHE_DIR: str = "./cache"
+
+    # Computed paths (set in __post_init__)
+    CHECKPOINT_PATH: str = ""
+    SONGS_DIR: str = ""
+    GROUP_TITLE_CSV_PATH: str = ""
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        # Set paths relative to PROJECT_ROOT
+        self.CHECKPOINT_PATH = os.path.join(self.PROJECT_ROOT, "checkpoints/resnet18_best.pth")
+        self.SONGS_DIR = os.path.join(self.PROJECT_ROOT, "preprocessed/train/song")
+        self.GROUP_TITLE_CSV_PATH = os.path.join(self.PROJECT_ROOT, "preprocessed/group_to_title.csv")
     # Model configuration
     INPUT_SHAPE:  tuple[int, int] = (630, 80)
     EMBEDDING_DIM: int = 512

@@ -2,7 +2,6 @@
 
 from fastapi import UploadFile, HTTPException
 from pydub import AudioSegment
-import os
 import logging
 
 logger = logging.getLogger(__name__)
@@ -26,7 +25,7 @@ ALLOWED_MIME_TYPES = {
 
 def validate_audio_file(file: UploadFile, max_size: int = 10 * 1024 * 1024) -> None:
     filename=str(file.filename)
-    file_ext = filename.lower().rsplit('.', 1)[-1]
+    file_ext = '.' + filename.lower().rsplit('.', 1)[-1] if '.' in filename else ''
     if file_ext not in ALLOWED_EXTENSIONS:
         raise HTTPException(
             status_code=400,

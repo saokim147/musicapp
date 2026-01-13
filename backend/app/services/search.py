@@ -7,7 +7,7 @@ import logging
 import pandas as pd
 from tqdm import tqdm
 
-from app.config import settings
+from backend.app.config import settings
 
 logger = logging.getLogger(__name__)
 
@@ -37,8 +37,9 @@ class SearchService:
     def _load_group_title_mapping(self):
         group_title_path = settings.GROUP_TITLE_CSV_PATH
         if os.path.exists(group_title_path):
-            df = pd.read_csv(group_title_path)
-            self.group_to_title = dict(zip(df['group_id'], df['song_title']))
+            # Use on_bad_lines='skip' to handle malformed CSV rows (unquoted commas in titles)
+            df = pd.read_csv(group_title_path, on_bad_lines='skip')
+            self.group_to_title = dict(zip(df['group_id'], df['title']))
             logger.info(f"Loaded {len(self.group_to_title)} group_id to title mappings")
         else:
             logger.warning(f"Group title CSV not found at {group_title_path}")

@@ -6,11 +6,11 @@ import os
 
 import torch
 
-from backend.app.config import settings
-from backend.app.api import routes
-from backend.app.services.inteference import InferenceService
-from backend.app.services.preprocessing import PreprocessingService
-from backend.app.services.search import SearchService
+from app.config import settings
+from app.api import routes
+from app.services.inteference import InferenceService
+from app.services.preprocessing import PreprocessingService
+from app.services.search import SearchService
 
 
 # Configure logging

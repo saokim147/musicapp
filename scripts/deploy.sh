@@ -335,7 +335,7 @@ After=network.target
 [Service]
 Type=simple
 User=ubuntu
-WorkingDirectory=/opt/musicapp/app/backend
+WorkingDirectory=/opt/musicapp/backend/app
 Environment="PATH=/opt/musicapp/.venv/bin"
 ExecStart=/opt/musicapp/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 1
 Restart=always

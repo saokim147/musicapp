@@ -1,13 +1,14 @@
 from sklearn.preprocessing import normalize
-from model.util import load_model
+
 import torch
 import numpy as np
-from backend.app.config import settings
+from app.config import settings
+from model.util import load_model
 class InferenceService:
     def __init__(self,device:str) -> None:
         self.backbone=settings.BACKBONE
         self.device=device
-        self.model=load_model(settings.CHECKPOINT_PATH,device,settings.BACKBONE,use_se=True)
+        self.model=load_model(settings.CHECKPOINT_PATH,device,settings.BACKBONE,use_se=False)
         self.input_shape=settings.INPUT_SHAPE
         
     def load_image_from_array(self,npy_array:np.ndarray)->torch.Tensor:    
