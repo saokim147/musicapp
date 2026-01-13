@@ -8,6 +8,7 @@ dependencies = [
     "librosa",
     "numba>=0.60",
     "pydantic>=2.12.5",
+    "python-multipart>=0.0.21",
     "tqdm>=4.67.1",
     "uvicorn[standard]>=0.40.0",
 ]
